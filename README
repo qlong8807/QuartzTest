@@ -1,0 +1,30 @@
+quartz可以把任务信息放到内存中。也可以把信息放到数据库中（持久化），放到数据库中，下次启动后，程序还是会继续运行，不用再次启动任务。
+
+持久化步骤：
+1. 在release的\quartz-2.2.3\docs\dbTables目录下找到对应的数据库脚本，并导入到数据库。
+2. 在配置文件quartz.properties文件中写入数据库信息和jobStore信息。
+3. 启动任务后，信息会保存到数据库。下次程序启动后就不用启动任务了。
+quartz的集群配置，只需要修改配置文件即可。
+
+Title 	Description
+Example 1 - First Quartz Program 	Think of this as a "Hello World" for Quartz
+Example 2 - Simple Triggers 	Shows a dozen different ways of using Simple Triggers to schedule your jobs
+Example 3 - Cron Triggers 	Shows how Cron Triggers can be used to schedule your job
+Example 4 - Job State and Parameters 	Demonstrates how parameters can be passed into jobs and how jobs maintain state
+Example 5 - Handling Job Misfires 	Sometimes job will not execute when they are supposed to. See how to handle these Misfires
+Example 6 - Dealing with Job Exceptions 	No job is perfect. See how you can let the scheduler know how to deal with exceptions that are thrown by your job
+Example 7 - Interrupting Jobs 	Shows how the scheduler can interrupt your jobs and how to code your jobs to deal with interruptions
+Example 8 - Fun with Calendars 	Demonstrates how a Holiday calendar can be used to exclude execution of jobs on a holiday
+Example 9 - Job Listeners 	Use job listeners to have one job trigger another job, building a simple workflow
+Example 10 - Using Quartz Plug-Ins 	Demonstrates the use of the XML Job Initialization plug-in as well as the History Logging plug-ins
+Example 11 - Quartz Under High Load 	Quartz can run a lot of jobs but see how thread pools can limit how many jobs can execute simultaneously
+Example 12 - Remote Job Scheduling using RMI 	Using Remote Method Invocation, a Quartz scheduler can be remotely scheduled by a client
+Example 13 - Clustered Quartz 	Demonstrates how Quartz can be used in a clustered environment and how Quartz can use the database to persist scheduling information
+Example 14 - Trigger Priorities 	Demonstrates how Trigger priorities can be used to manage firing order for Triggers with the same fire time
+Example 15 - TC Clustered Quartz 	Demonstrates how Quartz can be clustered with Terracotta, rather than with a database 
+
+example5：任务每隔3秒会被触发一次，但是执行一次任务需要10秒。这样就会用到misfire。
+	   * 即任务是否在第一次执行完立马执行下一次。或者说第一次任务执行完成后，等待下一次触发。
+example6：异常发生后是否继续
+example7：中断
+example9：监听器，常用于一个任务完成后触发另一个任务
